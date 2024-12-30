@@ -21,7 +21,7 @@ def transaction_descriptions(my_list: list[dict]) -> Iterator[str]:
         yield transaction_["description"]
 
 
-def card_number_generator(start, end):
+def card_number_generator(start: int, end: int) -> Iterator[str]:
     """
     Генератор, который выдает номера банковских карт. Генератор может сгенерировать номера карт в заданном
     диапазоне от 0000 0000 0000 0001 до 9999 9999 9999 9999.
@@ -29,6 +29,6 @@ def card_number_generator(start, end):
     """
     for number in range(start, end + 1):
         if len(str(number)) < 16:
-            card_number_not_formatted = "0" * (16 - len(str(number))) + str(number)
-            number_card = f"{card_number_not_formatted[:4]} {card_number_not_formatted[4:8]} {card_number_not_formatted[8:12]} {card_number_not_formatted[12:]}"
+            card_no_format = "0" * (16 - len(str(number))) + str(number)
+            number_card = f"{card_no_format[:4]} {card_no_format[4:8]} {card_no_format[8:12]} {card_no_format[12:]}"
             yield number_card
