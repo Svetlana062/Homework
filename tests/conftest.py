@@ -112,15 +112,3 @@ def usd_transaction() -> list[dict]:
             "to": "Visa Platinum 8990922113665229",
         },
     ]
-
-
-@pytest.fixture
-def currency():
-    currency_code = "USD"
-    return currency_code
-
-
-@pytest.fixture
-def filter_not_currency() -> list[dict]:
-    not_currency_filter = [{}]
-    return not_currency_filter
