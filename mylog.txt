@@ -1,1 +1,2 @@
 my_function ok
+my_function error: unsupported operand type(s) for /: 'str' and 'str'. Inputs: ('1', '9'), {}
