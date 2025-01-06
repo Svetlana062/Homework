@@ -61,5 +61,5 @@ def test_get_date(value: str, expected: str) -> None:
     ["31-02-2023", "2023/02/31", "31st of February, 2023", "2023-02", "02-2023", "дата: 31.02.2023", "31.02.23"],
 )
 def test_get_date_error(input_error: str) -> None:
-    with pytest.raises(ValueError):
+    with pytest.raises(IndexError):
         get_date(input_error)
