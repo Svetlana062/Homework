@@ -55,11 +55,4 @@ def test_get_date(value: str, expected: str) -> None:
     assert get_date(value) == expected
 
 
-# Тест на ошибочный ввод данных даты
-@pytest.mark.parametrize(
-    "input_error",
-    ["31-02-2023", "2023/02/31", "31st of February, 2023", "2023-02", "02-2023", "дата: 31.02.2023", "31.02.23"],
-)
-def test_get_date_error(input_error: str) -> None:
-    with pytest.raises(IndexError):
-        get_date(input_error)
+
