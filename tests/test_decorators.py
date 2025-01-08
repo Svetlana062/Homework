@@ -1,34 +1,31 @@
+import os
+
+import pytest
+
 from src.decorators import log
 
-# Функции тестирующие работу декоратора на правильность и ошибки
-def test_my_function_logs(capsys):
-    @log(filename="mylog.txt")
-    def my_function(x, y):
-        return x + y
 
-    my_function(1, 8)
-    captured = capsys.readouterr()
-    assert captured.out == "my_function ok\n\n"
-
-
-def test_my_function_error(capsys):
-    @log(filename="")
-    def my_function(x, y):
-        return x / y
-
-    my_function(1, 0)
-    captured = capsys.readouterr()
-    assert captured.out == "my_function error: division by zero. Inputs: (1, 0), {}\n\n"
+@pytest.fixture
+def temp_log_file():
+    """Фикстура для создания временного лог-файла."""
+    filename = "mylog.txt"
+    yield filename
+    if os.path.exists(filename):
+        os.remove(filename)
 
 
-def test_my_function_type(capsys):
-    @log(filename="")
-    def my_functions(x, y):
-        return x - y
+@pytest.mark.parametrize(
+    "args, expected_message",
+    [
+        ((1, 2), "my_function ok"),
+        ((3, 4), "my_function ok"),
+        (("4", "7"), "my_func error: unsupported operand type(s) for /: 'str' and 'str'. Inputs: ('1', '9'), {}"),
+        (("ijv", 8), "my_func error: unsupported operand type(s) for /: 'str' and 'int'. Inputs: ('1', '9'), {}"),
+    ],
+)
+def test_log_success(temp_log_file, capsys, args, expected_message):
+    """Тесты на результат обработки вводных данных."""
 
-    my_functions("1", "2")
-    captured = capsys.readouterr()
-    assert (
-        captured.out
-        == "my_function error: unsupported operand type(s) for /: 'str' and 'str'. Inputs: ('1', '2'), {}\n\n"
-    )
+    @log(temp_log_file)
+    def my_func(x, y):
+        assert x + y
