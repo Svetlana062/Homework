@@ -24,7 +24,7 @@ def temp_log_file():
     ],
 )
 def test_log_success(temp_log_file, capsys, args, expected_message):
-    """Тесты на результат обработки вводных данных."""
+    """Тест на результат обработки вводных данных."""
 
     @log(temp_log_file)
     def my_func(x, y):

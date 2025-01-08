@@ -35,7 +35,7 @@ def log(filename: str | None = None) -> Callable:
     return decorator
 
 
-# Проверка декораторов:
+# проверка декораторов:
 @log(filename="mylog.txt")
 def my_function_1(x: int, y: int) -> int | float:
     """Сложение двух чисел."""
