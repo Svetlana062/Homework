@@ -46,6 +46,3 @@ def test_mask_account_card_error(input_error: str) -> None:
 )
 def test_get_date(value: str, expected: str) -> None:
     assert get_date(value) == expected
-
-
-

@@ -1,5 +1,4 @@
 from functools import wraps
-from logging import error
 from typing import Any, Callable
 
 
