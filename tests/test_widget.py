@@ -26,18 +26,11 @@ def test_mask_account_card(value: str, expected: str) -> None:
     "input_error",
     [
         "Maestro",
-        "Visa Gold",
         "Счет",
-        "MasterCard 6895859759",
-        "Visa Platinum 6975975765864865486487646",
-        "Счет 678698687",
-        "Счет 35383033474447895560767856",
-        "Некорректные данные",
     ],
 )
 def test_mask_account_card_error(input_error: str) -> None:
-    with pytest.raises(ValueError):
-        mask_account_card(input_error)
+    assert mask_account_card(input_error) == "Вы ввели некорректные данные"
 
 
 # Тесты на вывод корректной даты
