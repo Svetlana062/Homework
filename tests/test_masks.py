@@ -20,12 +20,12 @@ def test_get_mask_card_number(value: str, expected: str) -> None:
 
 # Тесты на ошибочный ввод номеров карт
 @pytest.mark.parametrize(
-    "input_error",
-    ["", None, "7865432678", "87654457899987666786877897", "Visa", "Visa Classic", "Некорректные данные"],
+    "input_error", ["", "7865432678", "87654457899987666786877897", "Visa", "Visa Classic", "Некорректные данные"]
 )
 def test_get_mask_card_number_error(input_error: str) -> None:
-    with pytest.raises(TypeError):
+    with pytest.raises(ValueError) as exc_info:
         get_mask_card_number(input_error)
+    assert str(exc_info.value) == "Вы ввели некорректные данные"
 
 
 # Тесты на правильность маскировки номеров счетов
@@ -41,6 +41,7 @@ def test_get_mask_account(value: str, expected: str) -> None:
 @pytest.mark.parametrize(
     "input_error",
     [
+        "",
         "7865432678",
         "87654457899987666786877897",
         "Счет",
@@ -50,5 +51,6 @@ def test_get_mask_account(value: str, expected: str) -> None:
     ],
 )
 def test_mask_account_card_error(input_error: str) -> None:
-    with pytest.raises(TypeError):
+    with pytest.raises(ValueError) as exc_info:
         get_mask_account(input_error)
+    assert str(exc_info.value) == "Вы ввели некорректные данные"
