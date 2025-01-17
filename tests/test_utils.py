@@ -23,5 +23,6 @@ from src.utils import read_file
     ],
 )
 def test_read_file(path_file: str, expected: list) -> None:
+    #Тест на то, принимает ли функция на вход путь до JSON-файла и возвращает ли список словарей с данными о финансовых транзакциях.
     result = read_file(path_file)
     assert result == expected
