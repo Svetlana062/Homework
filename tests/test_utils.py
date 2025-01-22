@@ -1,6 +1,6 @@
 import pytest
 
-from src.utils import read_file
+from Homework.src.utils import read_file
 
 
 @pytest.mark.parametrize(
