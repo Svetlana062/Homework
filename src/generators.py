@@ -1,7 +1,7 @@
 from collections.abc import Iterator
 
 
-def filter_by_currency(transactions_list: list[dict], currency_code: str = "USD") -> Iterator[dict]:
+def filter_by_currency(transactions_list: list[dict], currency_code: str = "USD") -> Iterator[dict] | list:
     """Функция, которая принимает на вход список словарей, представляющих транзакции.
     Функция должна возвращать итератор, который поочередно выдает транзакции,
     где валюта операции соответствует заданной (например, USD)."""
