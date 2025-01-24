@@ -11,7 +11,7 @@ logger.setLevel(logging.DEBUG)
 logger.debug("Debug message")
 
 
-def read_file(path: str) -> list[dict]:
+def get_operators_info(path: str) -> list[dict]:
     """Функция, которая принимает на вход путь до JSON-файла и
     возвращает список словарей с данными о финансовых транзакциях"""
     try:
@@ -28,4 +28,4 @@ def read_file(path: str) -> list[dict]:
         return []
 
 
-print(read_file("../data/operations.json"))
+print(get_operators_info("../data/operations.json"))

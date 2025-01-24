@@ -1,7 +1,8 @@
 import logging
+from logging import FileHandler
 
 logger = logging.getLogger("masks")  # логер с именем текущего модуля
-file_handler = logging.FileHandler("../logs/masks.log", mode="w", encoding="utf-8")
+file_handler: FileHandler = logging.FileHandler("../logs/masks.log", mode="w")
 file_formatter = logging.Formatter("%(asctime)s %(name)s %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
