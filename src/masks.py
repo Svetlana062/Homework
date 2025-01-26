@@ -2,10 +2,13 @@ import logging
 import pathlib
 from logging import FileHandler
 
-path = pathlib.Path("logs", "masks.log")
+root_directory = pathlib.Path(__file__).parent.parent.resolve()
+
+# Формируем абсолютный путь к файлу логов
+log_path = root_directory / "logs" / "masks.log"
 
 logger = logging.getLogger("masks")  # логер с именем текущего модуля
-file_handler: FileHandler = logging.FileHandler(path, mode="w", encoding="utf-8")
+file_handler: FileHandler = logging.FileHandler(log_path, mode="w", encoding="utf-8")
 file_formatter = logging.Formatter("%(asctime)s %(name)s %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
