@@ -20,7 +20,7 @@ def conversion_currency(transaction) -> float:
     elif from_curr != "RUB":
         result = requests.get(url, headers=headers)
         new_amount = result.json()
-        return new_amount["result"]
+        return float(new_amount["result"])
 
 
 if __name__ == "__main__":

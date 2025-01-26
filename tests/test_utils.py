@@ -1,4 +1,5 @@
 import json
+
 import pytest
 
 from src.utils import get_operators_info
@@ -12,16 +13,10 @@ def valid_json_file(tmp_path):
             "id": 441945886,
             "state": "EXECUTED",
             "date": "2019-08-26T10:50:58.294041",
-            "operationAmount": {
-                "amount": "31957.58",
-                "currency": {
-                    "name": "руб.",
-                    "code": "RUB"
-                }
-            },
+            "operationAmount": {"amount": "31957.58", "currency": {"name": "руб.", "code": "RUB"}},
             "description": "Перевод организации",
             "from": "Maestro 1596837868705199",
-            "to": "Счет 64686473678894779589"
+            "to": "Счет 64686473678894779589",
         }
     ]
     file_path = tmp_path / "test_utils.json"
@@ -38,16 +33,10 @@ def test_get_operators_info(valid_json_file):
             "id": 441945886,
             "state": "EXECUTED",
             "date": "2019-08-26T10:50:58.294041",
-            "operationAmount": {
-                "amount": "31957.58",
-                "currency": {
-                    "name": "руб.",
-                    "code": "RUB"
-                }
-            },
+            "operationAmount": {"amount": "31957.58", "currency": {"name": "руб.", "code": "RUB"}},
             "description": "Перевод организации",
             "from": "Maestro 1596837868705199",
-            "to": "Счет 64686473678894779589"
+            "to": "Счет 64686473678894779589",
         }
     ]
     result = get_operators_info(valid_json_file)

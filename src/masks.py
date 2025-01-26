@@ -1,8 +1,11 @@
 import logging
+import pathlib
 from logging import FileHandler
 
+path = pathlib.Path("logs", "masks.log")
+
 logger = logging.getLogger("masks")  # логер с именем текущего модуля
-file_handler: FileHandler = logging.FileHandler("../logs/masks.log", mode="w")
+file_handler: FileHandler = logging.FileHandler(path, mode="w", encoding="utf-8")
 file_formatter = logging.Formatter("%(asctime)s %(name)s %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
