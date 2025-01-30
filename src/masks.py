@@ -39,9 +39,6 @@ def get_mask_card_number(card_number: str) -> str:
         raise
 
 
-print(get_mask_card_number("8888777766665555"))
-
-
 def get_mask_account(number: str) -> str:
     """Принимает на вход номер счета в виде числа и возвращает маску номера по правилу
     **XXXX"""
@@ -55,6 +52,3 @@ def get_mask_account(number: str) -> str:
     except Exception as e:
         logger.exception("Ошибка в функции get_mask_account: %s", e)
         raise
-
-
-print(get_mask_account("87656787656787654567"))

@@ -2,10 +2,13 @@ import json
 import logging
 import pathlib
 
-path = pathlib.Path("logs", "utils.log")
+root_directory = pathlib.Path(__file__).parent.parent.resolve()
+
+# Формируем абсолютный путь к файлу логов
+log_path = root_directory / "logs" / "utils.log"
 
 logger = logging.getLogger("utils")  # логер с именем текущего модуля
-file_handler = logging.FileHandler(path, mode="w", encoding="utf-8")
+file_handler = logging.FileHandler(log_path, mode="w", encoding="utf-8")
 file_formatter = logging.Formatter("%(asctime)s %(name)s %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
@@ -29,6 +32,3 @@ def get_operators_info(path: str) -> list[dict]:
     except FileNotFoundError:
         logger.error(f"Файл {path} не найден.")
         return []
-
-
-print(get_operators_info("./data/operations.json"))

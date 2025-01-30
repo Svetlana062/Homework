@@ -15,8 +15,8 @@ def filter_by_currency(transactions_list: list[dict], currency_code: str = "USD"
 
 
 def transaction_descriptions(my_list: list[dict]) -> Iterator[str]:
-    """Напишите генератор transaction_descriptions, который принимает список
-    словарей с транзакциями и возвращает описание каждой операции по очереди."""
+    """Напишите генератор, который принимает список словарей с транзакциями и возвращает
+    описание каждой операции по очереди."""
     for transaction_ in my_list:
         yield transaction_["description"]
 
