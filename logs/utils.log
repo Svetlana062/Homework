@@ -1,2 +1,4 @@
-2025-01-30 10:43:41,278 utils DEBUG: Debug message
-2025-01-30 10:43:41,287 utils INFO: Файл C:\Users\user\PycharmProjects\Homework\data\operations.json успешно загружен.
+2025-01-30 10:55:53,991 utils DEBUG: Debug message
+2025-01-30 10:55:54,074 utils INFO: Файл C:\Users\user\PycharmProjects\Homework\data\operations.json успешно загружен.
+2025-01-30 10:55:55,197 utils INFO: Файл C:\Users\user\AppData\Local\Temp\pytest-of-user\pytest-21\test_get_operators_info0\test_utils.json успешно загружен.
+2025-01-30 10:55:55,199 utils ERROR: Файл ./data/non_existent_file.json не найден.
